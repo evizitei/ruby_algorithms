@@ -1,7 +1,7 @@
 require "sorter"
 
 def test_sort(method)
-  size = 5000
+  size = 10000
   puts "---------------------------"
   array = []
   size.times do |i|
