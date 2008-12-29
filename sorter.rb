@@ -17,8 +17,8 @@ class Sorter
       return array
     else
       split_index = (array.size / 2).to_i
-      first_sorted_half = self.merge_sort!(array[0...split_index])
-      second_sorted_half = self.merge_sort!(array[split_index...array.size])
+      first_sorted_half = self.merge_sort(array[0...split_index])
+      second_sorted_half = self.merge_sort(array[split_index...array.size])
       return self.merge(first_sorted_half,second_sorted_half)
     end
   end
