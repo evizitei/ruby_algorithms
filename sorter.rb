@@ -1,27 +1,15 @@
 class Sorter
   def self.insertion_sort(array)
-    key_index = 1
-    max = array.size
-    output_array = [array[0]]
-    while key_index < max do
+    for key_index in 1...array.size do
       key_element = array[key_index]
-      current_max_element = output_array[output_array.size - 1]
-      if key_element < current_max_element
-        insertion_index = 0
-        while insertion_index <= output_array.size do
-          current_element = output_array[insertion_index]
-          if current_element.nil? or key_element <= current_element
-            output_array.insert(insertion_index,key_element)
-            break
-          end
-          insertion_index += 1
-        end
-      else
-        output_array << key_element
+      insertion_index = key_index - 1
+      while insertion_index >= 0 and array[insertion_index] > key_element
+        array[insertion_index + 1] = array[insertion_index]
+        insertion_index -= 1
       end
-      key_index += 1
+      array[insertion_index + 1] = key_element
     end
-    return output_array
+    array
   end
   
   def self.merge_sort(array)
