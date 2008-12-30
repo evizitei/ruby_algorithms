@@ -24,17 +24,18 @@ class Sorter
   end
   
   def self.merge(list_1,list_2)
-    list_1_head = list_2_head = 0
+    list_1_element = list_1[0]
+    list_2_element = list_2[0]
     merged_list = []
-    while list_1_head < list_1.size or list_2_head < list_2.size
-      list_1_element = (list_1_head < list_1.size) ? list_1[list_1_head] : nil
-      list_2_element = (list_2_head < list_2.size) ? list_2[list_2_head] : nil
+    while !list_1_element.nil? or !list_2_element.nil?
       if(list_2_element.nil? or (list_1_element != nil and list_2_element > list_1_element))
         merged_list << list_1_element
-        list_1_head += 1
+        list_1.delete_at(0)
+        list_1_element = list_1[0]
       else
         merged_list << list_2_element
-        list_2_head += 1
+        list_2.delete_at(0)
+        list_2_element = list_2[0]
       end
     end
     return merged_list
