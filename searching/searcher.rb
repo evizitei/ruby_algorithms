@@ -1,5 +1,5 @@
 class Searcher
-  def self.naive_search(array,token,low,high)
+  def self.linear_search(array,token,low,high)
     for i in 0..(array.size - 1) do
       value = array[i]
       if (value > token)

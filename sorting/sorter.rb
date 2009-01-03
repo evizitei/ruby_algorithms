@@ -13,7 +13,7 @@ class Sorter
   end
   
   def self.merge_sort(array)
-    if array.size == 1
+    if array.size <= 1
       return array
     else
       split_index = (array.size / 2).to_i
@@ -22,7 +22,27 @@ class Sorter
       return self.merge(first_sorted_half,second_sorted_half)
     end
   end
-  
+
+  def self.quick_sort(array)
+    if array.size <= 1
+      return array
+    else
+      pivot = array[0]
+      array.delete_at(0)
+      less = []
+      more = []
+      array.each do |element|
+        if element <= pivot
+          less << element
+        else
+          more << element
+        end
+      end
+      return [].concat(quick_sort(less)).concat([pivot]).concat(quick_sort(more))
+    end
+  end
+
+protected
   def self.merge(list_1,list_2)
     list_1_element = list_1[0]
     list_2_element = list_2[0]

@@ -22,5 +22,5 @@ def test_search(method)
 end
 
 puts "------Searcher Harness----------"
-test_search(:naive_search)
+test_search(:linear_search)
 test_search(:binary_search)
